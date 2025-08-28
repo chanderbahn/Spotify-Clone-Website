@@ -8,8 +8,6 @@ import { createContext, useEffect, useState } from "react";
 
 export const PlayerContext = createContext();
 
-
-
 const FrontendLayout = ({ children }) => {
     // const queryClient = new QueryClient(); 
     const [queryClient] = useState(() => new QueryClient());
