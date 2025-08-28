@@ -1,4 +1,4 @@
-import Allsongs from "@/src/Allsongs";
+import Allsongs from "@/src/components/Allsongs";
 import FrontendLayout from "@/layouts/FrontendLayout";
 
 export default function Home() {

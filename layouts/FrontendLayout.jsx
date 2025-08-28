@@ -2,7 +2,7 @@
 import Musicplayer from "@/src/components/Musicplayer";
 import Navbar from "@/src/components/Navbar";
 import Queue from "@/src/components/Queue";
-import Sidebar from "@/src/Sidebar";
+import Sidebar from "@/src/components/Sidebar";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createContext, useEffect, useState } from "react";
 
