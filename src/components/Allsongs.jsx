@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { PlayerContext } from "@/layouts/FrontendLayout";
 
 const Allsongs = () => {
-  // ✅ useContext should be here, not inside getAllSongs
+  // useContext should be here, not inside getAllSongs
   const context = useContext(PlayerContext);
 
   if (!context) {

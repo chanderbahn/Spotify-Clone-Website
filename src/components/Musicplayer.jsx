@@ -24,7 +24,7 @@ const Musicplayer = () => {
 
     const { isQueueModalOpen, setQueueModalOpen, currentMusic, playNext, playPrev } = context;
 
-    /** ▶ Play / Pause */
+    /**  Play / Pause */
     const toggleButton = () => {
         if (!audioRef.current) return;
         if (isPlaying) {
@@ -36,7 +36,7 @@ const Musicplayer = () => {
         }
     };
 
-    /** 🔊 Toggle Mute */
+    /** Toggle Mute */
     const toggleMute = () => {
         if (volume === 0) {
             setVolume(previousVolume);
@@ -52,7 +52,7 @@ const Musicplayer = () => {
         }
     };
 
-    /** 🔊 Volume Handler */
+    /** Volume Handler */
     const handleVolume = (e) => {
         const vol = parseInt(e.target.value);
         setVolume(vol);
@@ -61,7 +61,7 @@ const Musicplayer = () => {
         }
     };
 
-    /** ⏩ Seek Handler */
+    /** Seek Handler */
     const handleSeek = (e) => {
         const newTime = parseFloat(e.target.value);
         if (audioRef.current) {
@@ -70,7 +70,7 @@ const Musicplayer = () => {
         }
     };
 
-    /** 🎵 Progress Listener */
+    /** Progress Listener */
     useEffect(() => {
         const audio = audioRef.current;
         if (!audio) return;
@@ -89,14 +89,14 @@ const Musicplayer = () => {
         };
     }, []);
 
-    /** 🔊 Sync Volume */
+    /** Sync Volume */
     useEffect(() => {
         if (audioRef.current) {
             audioRef.current.volume = volume / 100;
         }
     }, [volume]);
 
-    /** ▶ Autoplay when currentMusic changes */
+    /** Autoplay when currentMusic changes */
     useEffect(() => {
         const audio = audioRef.current;
         if (!audio || !currentMusic) return;
@@ -118,7 +118,7 @@ const Musicplayer = () => {
         playAudio();
     }, [currentMusic]);
 
-    /** 🔁 Auto play next when song ends */
+    /** Auto play next when song ends */
     useEffect(() => {
         const audio = audioRef.current;
         if (!audio) return;
@@ -136,14 +136,14 @@ const Musicplayer = () => {
         return () => audio.removeEventListener("ended", handleEnded);
     }, [repeatMode, playNext]);
 
-    /** 🔁 Toggle Repeat Mode */
+    /** Toggle Repeat Mode */
     const toggleRepeat = () => {
         if (repeatMode === "off") setRepeatMode("all");
         else if (repeatMode === "all") setRepeatMode("one");
         else setRepeatMode("off");
     };
 
-    /** ⏱ Format Time */
+    /** Format Time */
     const formatTime = (time) => {
         if (!time || isNaN(time)) return "0:00";
         const minute = Math.floor(time / 60);
@@ -210,7 +210,7 @@ const Musicplayer = () => {
                 {/*  Extra Controls */}
                 {/* <div className='flex items-center gap-2'> */}
                 <div className="flex items-center gap-2 justify-center md:justify-end">
-                    {/* 🔁 Repeat Button */}
+                    {/* Repeat Button */}
                     <button onClick={toggleRepeat} className='text-xl'>
                         {repeatMode === "one" ? (
                             <LuRepeat1 className="text-green-500" />
