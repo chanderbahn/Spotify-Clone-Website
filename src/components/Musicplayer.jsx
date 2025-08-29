@@ -157,9 +157,10 @@ const Musicplayer = () => {
         <div className='fixed bottom-0 left-0 w-full bg-black text-white px-4 py-3 shadow-md z-50'>
             <audio src={currentMusic.audio_url || ""} ref={audioRef}></audio>
 
-            <div className='max-w-8xl w-[95%] mx-auto flex items-center justify-between'>
+            {/* <div className='max-w-8xl w-[95%] mx-auto flex items-center justify-between'> */}
+            <div className="max-w-8xl w-[95%] mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-3">
 
-                {/* 🎵 Song Info */}
+                {/*  Song Info */}
                 <div className='flex gap-4 items-center'>
                     <Image src={currentMusic.cover_image_url || ""} alt='cover-image' width={50} height={50} className='w-13 h-13 object-cover rounded-md' />
                     <div className='text-sm'>
@@ -168,9 +169,9 @@ const Musicplayer = () => {
                     </div>
                 </div>
 
-                {/* ▶ Controls */}
+                {/*  Controls */}
                 <div className='max-w-[400px] w-full flex items-center flex-col gap-3'>
-                    <div className='flex gap-4'>
+                    <div className='flex gap-4 items-center'>
                         <button onClick={playPrev} className='text-xl text-secondary-text cursor-pointer'>
                             <IoMdSkipBackward />
                         </button>
@@ -185,7 +186,7 @@ const Musicplayer = () => {
                         </button>
                     </div>
 
-                    {/* 📊 Progress Bar */}
+                    {/* Progress Bar */}
                     <div className='w-full flex justify-center items-center gap-2'>
                         <span className='text-secondary-text font-normal text-sm'>
                             {formatTime(currentTime)}
@@ -206,8 +207,9 @@ const Musicplayer = () => {
                     </div>
                 </div>
 
-                {/* ⚙ Extra Controls */}
-                <div className='flex items-center gap-2'>
+                {/*  Extra Controls */}
+                {/* <div className='flex items-center gap-2'> */}
+                <div className="flex items-center gap-2 justify-center md:justify-end">
                     {/* 🔁 Repeat Button */}
                     <button onClick={toggleRepeat} className='text-xl'>
                         {repeatMode === "one" ? (
@@ -219,29 +221,33 @@ const Musicplayer = () => {
                         )}
                     </button>
 
-                    {/* 📋 Queue Button */}
+                    {/*  Queue Button */}
                     <button onClick={() => setQueueModalOpen(!isQueueModalOpen)} className='text-secondary-text text-xl cursor-pointer'>
                         <MdOutlineQueueMusic />
                     </button>
 
-                    {/* 🔊 Volume */}
-                    {volume === 0 ? (
-                        <button onClick={toggleMute} className='text-secondary-text text-xl cursor-pointer'>
-                            <IoMdVolumeOff />
-                        </button>
-                    ) : (
-                        <button onClick={toggleMute} className='text-secondary-text text-xl cursor-pointer'>
-                            <IoMdVolumeHigh />
-                        </button>
-                    )}
-                    <input
-                        onChange={handleVolume}
-                        value={volume}
-                        type="range"
-                        min="0"
-                        max="100"
-                        className='w-[100px] outline-none h-1 bg-zinc-700 accent-white appearance-none cursor-pointer'
-                    />
+                    <div className="hidden md:flex items-center gap-2">
+                        {/*  Volume */}
+                        {volume === 0 ? (
+                            <button onClick={toggleMute} className='text-secondary-text text-xl cursor-pointer'>
+                                <IoMdVolumeOff />
+                            </button>
+                        ) : (
+                            <button onClick={toggleMute} className='text-secondary-text text-xl cursor-pointer'>
+                                <IoMdVolumeHigh />
+                            </button>
+                        )}
+                        <input
+                            onChange={handleVolume}
+                            value={volume}
+                            type="range"
+                            min="0"
+                            max="100"
+                            className='w-[100px] outline-none h-1 bg-zinc-700 accent-white appearance-none cursor-pointer'
+                        />
+                    </div>
+
+
                 </div>
             </div>
         </div>

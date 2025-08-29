@@ -36,10 +36,17 @@ const Sidebar = () => {
 
   return (
     <>
+     {/* {sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 lg:hidden z-40"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )} */}
+
       {session ? (
         // Show library when logged in
         <div>
-          <aside className={`fixed left-2 top-15 bg-background w-75 rounded-lg h-[90vh] p-2 overflow-y-auto ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-500 lg:translate-x-0`}>
+          <aside className={`fixed left-2 top-15 bg-background w-75 rounded-lg h-[90vh] p-2 overflow-y-auto ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-500 lg:translate-x-0 z-50`}>
             <div className="flex justify-between text-primary-text items-center p-2 mb-4">
               <h2 className="font-bold">Your Library</h2>
               <Link href="upload-songs">
@@ -61,7 +68,7 @@ const Sidebar = () => {
       ) : (
         //  Show login prompt when NOT logged in
         <div>
-          <aside className={`fixed left-2 top-15 bg-background w-75 rounded-lg h-[90vh] p-2 overflow-y-auto ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-500 lg:translate-x-0`}>
+          <aside className={`fixed left-2 top-15 bg-background w-75 rounded-lg h-[90vh] p-2 overflow-y-auto ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-500 lg:translate-x-0 z-50`}>
             <div className="py-8 text-center">
               <Link href="/login" className="bg-white px-6 py-2 rounded-full font-semibold hover:text-secondary-text">Login</Link>
               <p className="mt-4 text-white">Login to view your Library</p>
