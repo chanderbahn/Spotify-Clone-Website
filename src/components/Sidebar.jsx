@@ -36,12 +36,12 @@ const Sidebar = () => {
 
   return (
     <>
-     {/* {sidebarOpen && (
+     {sidebarOpen && (
         <div
           className="fixed inset-0 bg-black/50 lg:hidden z-40"
           onClick={() => setSidebarOpen(false)}
         />
-      )} */}
+      )}
 
       {session ? (
         // Show library when logged in
@@ -60,7 +60,7 @@ const Sidebar = () => {
 
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="fixed bottom-5 left-5 bg-background w-12 h-12 lg:hidden grid place-items-center text-white rounded-lg z-50 cursor-pointer"
+            className="fixed bottom-5 left-4 bg-background w-12 h-12 lg:hidden grid place-items-center text-white rounded-lg z-50 cursor-pointer"
           >
             <MdOutlineLibraryMusic />
           </button>
